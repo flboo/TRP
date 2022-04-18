@@ -1,0 +1,86 @@
+<html lang="en" id="leekoh">
+
+<head>
+    <meta charset="UTF-8" name="viewport"
+        content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+    <title>hahaha</title>
+
+<body>
+    <div class="main">
+        <br>
+        <br>
+        <br>
+        <p align=center>
+            <img border="0" src="images/xytx.jpg" alt="xytx" width="75" height="75">
+        </p>
+        <P align=center>
+            <STRONG>
+                <FONT size=4>最帅小易输入框:</FONT>
+            </STRONG>
+        </P>
+        <br>
+        <p align=center>
+            <input id="inputcontent" type="text" name="user" size=150
+                style="height:40px;line-height:50px; text-align: center;">
+            <br>
+            <br>
+            <br>
+            <button onclick="displayDate()" size=150 style="height: 50px; width: 150px;">点击转换</button>
+            <br>
+        </p>
+        <div align=center>
+            <div>
+                <br>
+                <br>
+                <p size=5 id="demo1">大写:大写</p>
+            </div>
+            <div>
+                <br>
+                <br>
+                <p size=5 id="demo2">大写大写</p>
+            </div>
+
+            <div>
+                <br>
+                <br>
+                <p size=5 id="demo3">小写:小写</p>
+            </div>
+
+            <div>
+                <br>
+                <br>
+                <p size=5 id="demo4">小写小写</< /p>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+<script>
+    function displayDate() {
+        var x = document.getElementById("inputcontent");
+        var value0 = x.value.toUpperCase();
+        var str = "";
+        if (value0.length > 0) {
+            for (var i = 0; i < value0.length; i++) {
+                if (i % 2 == 0) {
+                    console.log("i :" + i + "str钱 " + str);
+                    if (i == 0) {
+                        str = value0.slice(i, i + 2);
+                    } else {
+                        str = str + ":" + value0.slice(i, i + 2);
+                    }
+                    console.log("i :" + i + "str后 " + str);
+                }
+            }
+        } else {
+            str = "空 空";
+        }
+        document.getElementById("demo1").innerHTML = str;
+        document.getElementById("demo2").innerHTML = value0;
+        document.getElementById("demo3").innerHTML = str.toLocaleLowerCase();
+        document.getElementById("demo4").innerHTML = value0.toLocaleLowerCase();
+    }
+</script>
+
+</html>
