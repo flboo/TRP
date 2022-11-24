@@ -1,0 +1,120 @@
+<html lang="en" id="leekoh">
+
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+    <title>hahaha</title>
+
+    <body>
+        <div class="main">
+            <br>
+            <P align=center>
+                <STRONG>
+                <FONT size=4>Android包名“可用性”检测:</FONT>
+            </STRONG>
+            </P>
+            <br>
+            <p align=center>
+                <img border="0" src="images/xyxy.jpeg" alt="xytx" width="75" height="75">
+            </p>
+            <P align=center>
+                <STRONG>
+                <FONT size=4>小易输入框:</FONT>
+            </STRONG>
+            </P>
+            <br>
+            <p align=center>
+                <input id="inputcontent" type="text" name="user" size=75 style="height:40px;line-height:50px; text-align: center;">
+                <br>
+                <br>
+                <br>
+                <button onclick="displayDate()" style="height: 50px; width: 150px; font-size:30px;">piu ~</button>
+                <br>
+            </p>
+            <div align=center>
+                <div>
+                    <br>
+                    <br>
+                    <!-- <p size=10 id="demo1">大写:大写</p> -->
+                </div>
+                <div>
+                    <br>
+                    <br>
+                    <p size=10 id="demo2"></p>
+                </div>
+
+                <!-- <div>
+                    <br>
+                    <br>
+                    <p size=10 id="demo3">小写:小写</p>
+                </div>
+
+                <div>
+                    <br>
+                    <br>
+                    <p size=10 id="demo4">小写小写</< /p>
+                </div> -->
+
+            </div>
+        </div>
+
+    </body>
+    <script>
+        var sensitive = ["abstract", "default", "goto", , "switch", "boolean", "do", "if", "package", "nchronzed", "break", "double", "implements", "private", "this", "byte", "else", "import", "protected", "throw", "throws", "case", "extends", "instanceof", "public", "transient", "catch", "int", "return", "char", "final", "interface", "short", "try", "class", "finally", "long", "static", "void", "const", "float", "native", "strictfp", "volatile", "continue", "for", "new", "super", "while", "assert", "enum"];
+        var sensitive2 = ["goto", "const"];
+
+        function contains(val) {
+            for (var i = 0; i < sensitive.length; i++) {
+                if (sensitive[i] === val) {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        function containsStart(val) {
+            for (var i = 0; i < sensitive2.length; i++) {
+                if (val.indexOf(sensitive2[i]) == 0) {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        function displayDate() {
+            var x = document.getElementById("inputcontent");
+            var str = x.value;
+            var endstr = "";
+            console.log("str::  " + str + "x;" + x);
+            if (str.length > 0) {
+                var str0 = str.split(".");
+                for (let index = 0; index < str0.length; index++) {
+                    if (contains(str0[index])) {
+                        endstr += str0[index];
+                        endstr += "  ";
+                    }
+                }
+
+                for (let index = 0; index < str0.length; index++) {
+                    if (containsStart(str0[index])) {
+                        endstr += str0[index];
+                        endstr += "*  ";
+                    }
+                }
+
+                if (endstr != "") {
+                    endstr = " 包名 ==> 不可用！ 不可用！ 不可用！   含特殊词：" + endstr;
+                } else {
+                    endstr = " 包名 可用！ 可用！ 可用！ ";
+                }
+
+            } else {
+                endstr = "你输的啥？ 你见过这样的包名：" + str;
+            }
+            // document.getElementById("demo1").innerHTML = endstr;
+            document.getElementById("demo2").innerHTML = endstr;
+            // document.getElementById("demo3").innerHTML = str.toLocaleLowerCase();
+            // document.getElementById("demo4").innerHTML = value0.toLocaleLowerCase();
+        }
+    </script>
+
+</html>
