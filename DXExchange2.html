@@ -61,7 +61,8 @@
 <script>
     function displayDate() {
         var x = document.getElementById("inputcontent");
-        var value0 = x.value.toUpperCase();
+        var nomaohao = x.value.replace(/:/g, "");
+        var value0 = nomaohao.toUpperCase();
         var str = "";
         if (value0.length > 0) {
             for (var i = 0; i < value0.length; i++) {
