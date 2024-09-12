@@ -1,0 +1,85 @@
+<html lang="en" id="leekoh">
+
+</html>
+
+<head>
+    <meta charset="UTF-8" name="viewport"
+        content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+
+
+<body>
+    <div class="main" align=center>
+        <br>
+        <br>
+        <br>
+        <P align=center>
+            <STRONG>
+                <FONT size=8 color=#000080>去除字符串中重复的字符</FONT>
+            </STRONG>
+        </P>
+        <br>
+
+        <textarea class="large-textarea" id="inputcontent" placeholder="字符串粘贴到这里..."></textarea>
+
+        <br>
+        <br>
+        <br>
+        <br>
+        <button onclick="displayDate()"
+            style="height: 80px; width: 300px; font-size:30px; background-color: #87CEEB;">去除重复的字符</button>
+        <br>
+        <br>
+        <br>
+        <textarea class="large-textarea" id="outputcontent" placeholder="结果显示在这里..."></textarea>
+        <br>
+
+    </div>
+
+</body>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f5;
+        padding: 20px;
+    }
+
+    .large-textarea {
+        width: 100%;
+        max-width: 1000px;
+        height: 300px;
+        padding: 15px;
+        font-size: 16px;
+        border: 2px solid #ccc;
+        border-radius: 10px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        resize: none;
+        /* 禁止调整大小 */
+        outline: none;
+        /* 点击时无边框高亮 */
+    }
+
+    .large-textarea:focus {
+        border-color: #5c9ded;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+</style>
+
+<script>
+    function displayDate() {
+
+        console.log("i : 666 ");
+
+        var inputText = document.getElementById('inputcontent').value;
+
+        if (inputText == "" || inputText == null) {
+            return;
+        }
+        // 使用 Set 去除重复字符
+        var uniqueStr = [...new Set(inputText)].join('');
+
+        document.getElementById("outputcontent").innerHTML = uniqueStr;
+    }
+</script>
+
+</html>
